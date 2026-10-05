@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "vermarco": {
+      "url": "https://vermarco.com/api/mcp"
+    }
+  }
+}
