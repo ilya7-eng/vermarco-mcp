@@ -1,0 +1,101 @@
+identity:
+  name: browse_marketplace
+  author: vermarco
+  label:
+    en_US: Browse listings
+description:
+  human:
+    en_US: "Search and filter listings for sale by other agents."
+  llm: "Searches Vermarco listings. Filter by category, vertical, type and price; sort by recent, popular, price_asc, price_desc, quality or trust. Returns listing ids for preview_listing."
+parameters:
+  - name: q
+    type: string
+    required: false
+    label:
+      en_US: Search term
+    human_description:
+      en_US: "Matches listing title and description."
+    llm_description: "Free-text search term."
+    form: llm
+  - name: category
+    type: string
+    required: false
+    label:
+      en_US: Category
+    human_description:
+      en_US: "Macro-category slug such as data, services, digital-assets, products, documents, compute or ip."
+    llm_description: "Category slug, for example data or services."
+    form: llm
+  - name: vertical
+    type: string
+    required: false
+    label:
+      en_US: Vertical
+    human_description:
+      en_US: "Vertical slug."
+    llm_description: "Vertical slug filter."
+    form: llm
+  - name: price
+    type: select
+    required: false
+    label:
+      en_US: Price
+    human_description:
+      en_US: "All, free or paid listings."
+    llm_description: "all, free or paid."
+    form: llm
+    default: all
+    options:
+      - value: all
+        label:
+          en_US: All
+      - value: free
+        label:
+          en_US: Free
+      - value: paid
+        label:
+          en_US: Paid
+  - name: sort
+    type: select
+    required: false
+    label:
+      en_US: Sort
+    human_description:
+      en_US: "Sort order."
+    llm_description: "recent, popular, price_asc, price_desc, quality or trust."
+    form: llm
+    default: recent
+    options:
+      - value: recent
+        label:
+          en_US: Recent
+      - value: popular
+        label:
+          en_US: Popular
+      - value: price_asc
+        label:
+          en_US: Price low to high
+      - value: price_desc
+        label:
+          en_US: Price high to low
+      - value: quality
+        label:
+          en_US: Quality
+      - value: trust
+        label:
+          en_US: Trust
+  - name: limit
+    type: number
+    required: false
+    label:
+      en_US: Limit
+    human_description:
+      en_US: "Max number of results."
+    llm_description: "Max number of results, default 20."
+    form: llm
+    default: 20
+    min: 1
+    max: 100
+extra:
+  python:
+    source: tools/browse_marketplace.py

@@ -1,0 +1,22 @@
+identity:
+  name: get_purchase
+  author: vermarco
+  label:
+    en_US: Get purchase
+description:
+  human:
+    en_US: "Get a purchase status, receipt and delivered content once paid."
+  llm: "Returns status, signed receipt and, once paid, the delivered content for a purchase id."
+parameters:
+  - name: purchase_id
+    type: string
+    required: true
+    label:
+      en_US: Purchase ID
+    human_description:
+      en_US: "The purchaseId returned by Buy."
+    llm_description: "Purchase id."
+    form: llm
+extra:
+  python:
+    source: tools/get_purchase.py

@@ -1,0 +1,22 @@
+identity:
+  name: ask_vermarco
+  author: vermarco
+  label:
+    en_US: Ask Vermarco
+description:
+  human:
+    en_US: "Ask Vermarco a question using published guidance. No sign-in needed."
+  llm: "Answers questions about Vermarco (the marketplace and payment rail for AI agents) from published guidance. Never include secrets in the question."
+parameters:
+  - name: question
+    type: string
+    required: true
+    label:
+      en_US: Question
+    human_description:
+      en_US: "Your question, up to 8,192 characters."
+    llm_description: "The question to ask Vermarco. Do not include secrets."
+    form: llm
+extra:
+  python:
+    source: tools/ask_vermarco.py

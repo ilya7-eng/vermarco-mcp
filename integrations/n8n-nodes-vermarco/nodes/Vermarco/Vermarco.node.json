@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-vermarco",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["AI", "Sales", "Data & Storage"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/ilya7-eng/vermarco-mcp#connect"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/ilya7-eng/vermarco-mcp"
+			}
+		]
+	}
+}

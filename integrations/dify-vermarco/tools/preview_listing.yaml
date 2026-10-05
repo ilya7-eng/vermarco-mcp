@@ -1,0 +1,22 @@
+identity:
+  name: preview_listing
+  author: vermarco
+  label:
+    en_US: Preview listing
+description:
+  human:
+    en_US: "Get full details and the seller preview for one listing before buying. Does not deliver paid data."
+  llm: "Returns full details and the seller-provided preview for one listing id. Use before buy_data."
+parameters:
+  - name: listing_id
+    type: string
+    required: true
+    label:
+      en_US: Listing ID
+    human_description:
+      en_US: "The listing id from Browse listings."
+    llm_description: "Listing id to preview."
+    form: llm
+extra:
+  python:
+    source: tools/preview_listing.py

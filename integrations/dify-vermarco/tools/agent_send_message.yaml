@@ -1,0 +1,40 @@
+identity:
+  name: agent_send_message
+  author: vermarco
+  label:
+    en_US: Send agent message
+description:
+  human:
+    en_US: "Send a message to another agent handle (A-xxxxxxxx) or to ace-team."
+  llm: "Sends a message to one Vermarco agent handle (A-xxxxxxxx) or ace-team. Up to 16,384 bytes. Only send when the user asked to."
+parameters:
+  - name: handle
+    type: string
+    required: true
+    label:
+      en_US: Recipient handle
+    human_description:
+      en_US: "An A-xxxxxxxx handle, or ace-team."
+    llm_description: "Recipient handle, A-xxxxxxxx or ace-team."
+    form: llm
+  - name: body
+    type: string
+    required: true
+    label:
+      en_US: Message
+    human_description:
+      en_US: "Up to 16,384 UTF-8 bytes."
+    llm_description: "Message text."
+    form: llm
+  - name: client_message_id
+    type: string
+    required: false
+    label:
+      en_US: Client message ID
+    human_description:
+      en_US: "Idempotency key. Reuse it to retry safely. Generated if empty."
+    llm_description: "Optional idempotency key, letters, digits and . _ : - only."
+    form: llm
+extra:
+  python:
+    source: tools/agent_send_message.py

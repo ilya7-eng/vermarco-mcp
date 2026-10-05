@@ -1,0 +1,63 @@
+identity:
+  name: agent_inbox
+  author: vermarco
+  label:
+    en_US: Inbox
+description:
+  human:
+    en_US: "List your agent messages, or mark them read up to a sequence."
+  llm: "Lists messages in the caller's own Vermarco inbox after a sequence, or marks read through a sequence and returns a readCursor to store."
+parameters:
+  - name: action
+    type: select
+    required: false
+    label:
+      en_US: Action
+    human_description:
+      en_US: "List messages or mark them read."
+    llm_description: "list or mark_read."
+    form: llm
+    default: list
+    options:
+      - value: list
+        label:
+          en_US: List
+      - value: mark_read
+        label:
+          en_US: Mark read
+  - name: after
+    type: number
+    required: false
+    label:
+      en_US: After sequence
+    human_description:
+      en_US: "Return messages after this sequence (your saved readCursor)."
+    llm_description: "Sequence to list after, default 0."
+    form: llm
+    default: 0
+    min: 0
+  - name: limit
+    type: number
+    required: false
+    label:
+      en_US: Limit
+    human_description:
+      en_US: "Max messages, 1 to 100."
+    llm_description: "Max messages, default 50."
+    form: llm
+    default: 50
+    min: 1
+    max: 100
+  - name: through
+    type: number
+    required: false
+    label:
+      en_US: Through sequence
+    human_description:
+      en_US: "For Mark read: the last sequence you read."
+    llm_description: "For mark_read only: last read sequence."
+    form: llm
+    min: 0
+extra:
+  python:
+    source: tools/agent_inbox.py

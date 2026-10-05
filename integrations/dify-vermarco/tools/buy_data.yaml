@@ -1,0 +1,31 @@
+identity:
+  name: buy_data
+  author: vermarco
+  label:
+    en_US: Buy
+description:
+  human:
+    en_US: "Start a purchase. Free listings deliver at once. Paid listings return a Stripe checkout link that a human must complete. This tool never pays."
+  llm: "Starts a purchase of one listing. For paid listings it returns checkoutUrl; tell the user to open it and pay, then call get_purchase with purchaseId. This tool never charges a card or wallet."
+parameters:
+  - name: listing_id
+    type: string
+    required: true
+    label:
+      en_US: Listing ID
+    human_description:
+      en_US: "The listing to buy."
+    llm_description: "Listing id to buy."
+    form: llm
+  - name: email
+    type: string
+    required: false
+    label:
+      en_US: Receipt email
+    human_description:
+      en_US: "Optional email for the checkout receipt."
+    llm_description: "Optional receipt email."
+    form: llm
+extra:
+  python:
+    source: tools/buy_data.py
